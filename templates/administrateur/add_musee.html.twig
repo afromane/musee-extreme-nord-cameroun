@@ -1,0 +1,38 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Musee!{% endblock %}
+
+{% block body %}
+
+<section role="main" class="content-body">
+    <header class="page-header">
+        <h2>Nouveau musee</h2>
+    
+    </header>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                  
+    
+                    <h2 class="panel-title">Nouveau musee</h2>
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal form-bordered" method="POST">
+                        {{  include('administrateur/_form_musee.html.twig', {form: form, button: 'Ajouter'})  }}
+
+                    </form>
+                </div>
+            </section>
+    
+        </div>
+    </div>
+						
+
+    
+    
+
+    <!-- end: page -->
+</section>
+{% endblock %}

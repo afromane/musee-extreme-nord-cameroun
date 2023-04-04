@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<section class="events-style3-area pdbottom0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+            {% for i in musees %}<!--Start Single event Box Style3-->
+                <div class="single-event-box-style3">
+                    <div class="row">
+                        <div class="col-xl-5">
+                            <div class="title-holder"><span>{{i.ville~","~i.region}}</span>
+                                <h2><a href="#">{{i.nom}}</a>
+                                </h2>
+                                <p>{{i.description | slice(1,100)}}</p>
+                                <div class="button"><a class="btn-two" href="{{ path('app_discover',{id:i.getId()})}}">Découvrir</a></div>
+                                {# <div class="button"><a class="btn-two" href="">Réserver</a></div> #}
+                            </div>
+                        </div>
+                        <div class="col-xl-5">
+                            <div class="img-holder">
+                                <div class="inner"><img src="images/events/event-v3-1.jpg" alt="Awesome Image">
+                                    <div class="overlay-style-one bg1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2">
+                            <div class="date-holder">
+                                <div class="inner">
+                                    {# <h1>08<span>Nov</span></h1>
+                                    <h3>Wednesday</h3> #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor  %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

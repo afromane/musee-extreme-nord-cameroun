@@ -1,0 +1,138 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Musee!{% endblock %}
+
+{% block body %}
+
+<section role="main" class="content-body">
+    <header class="page-header">
+        <h2>Tableau de bord</h2>
+    
+    </header>
+
+    <!-- start: page -->
+    <div class="row">
+    <div class="col-md-6 col-lg-12 col-xl-6">
+            <div class="row">
+                
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <section class="panel panel-featured-left panel-featured-secondary">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-secondary">
+                                        <i class="fa  fa-building"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Total Mussée</h4>
+                                        <div class="info">
+                                            <strong class="amount"> {{musees|length}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                        <a class="text-muted text-uppercase">(Detail)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <section class="panel panel-featured-left panel-featured-tertiary">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-tertiary">
+                                        <i class="fa fa-tasks"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Total reservation</h4>
+                                        <div class="info">
+                                            <strong class="amount">{{reservation|length}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                        <a class="text-muted text-uppercase">(Detail)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <section class="panel panel-featured-left panel-featured-quartenary">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-quartenary">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Visiteur</h4>
+                                        <div class="info">
+                                            <strong class="amount">{{reservation|length +10}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                        <a class="text-muted text-uppercase">(Detail)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        {# <div class="col-md-6 col-lg-12 col-xl-6">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="chart-data-selector" id="salesSelectorWrapper">
+
+                                <div id="salesSelectorItems" class="chart-data-selector-items mt-sm">
+                                    <!-- Flot: Sales JSOFT Admin -->
+                                    <div class="chart chart-sm" data-sales-rel="JSOFT Admin" id="flotDashSales1" class="chart-active"></div>
+                                    <script>
+
+                                        var flotDashSales1Data = [{
+                                            data: [
+                                                ["Jan", 140],
+                                                ["Feb", 240],
+                                                ["Mar", 190],
+                                                ["Apr", 140],
+                                                ["May", 180],
+                                                ["Jun", 320],
+                                                ["Jul", 270],
+                                                ["Aug", 180]
+                                            ],
+                                            color: "#0088cc"
+                                        }];
+
+                                        // See: assets/javascripts/dashboard/examples.dashboard.js for more settings.
+
+                                    </script>
+
+                                </div>
+
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
+        </div> #}
+        
+    </div>
+
+    
+
+    <!-- end: page -->
+</section>
+{% endblock %}

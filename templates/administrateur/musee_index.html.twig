@@ -1,0 +1,68 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Musee!{% endblock %}
+
+{% block body %}
+<section role="main" class="content-body">
+    <header class="page-header">
+        <h2>Musée</h2>
+    
+        
+    </header>
+
+    <!-- start: page -->
+        <section class="panel">
+                 
+            
+            <div class="panel-body">
+                    {% for message in  app.flashes('success') %}
+                      <div class="row">
+                          <div class="alert alert-success text-center mt-4 col-8 " style="margin-left:16%">
+                              {{ message }}
+                          </div>
+                      </div>
+                    {% endfor %}
+                <a class="pull-right btn btn-primary" href="{{path('museum.record')}}">
+                    <i class="fa fa-plus-circle"></i>
+                    Nouveau musée
+                </a>
+                <br>
+                <br>
+                <br>
+
+                <table class="table table-bordered table-striped mb-none" id="datatable-default">
+                    <thead>
+                        <tr>
+                            <th>N</th>
+                            <th>Nom</th>
+                            <th>Ville</th>
+                            <th>Region</th>
+                            <th>Description</th>
+                            <th class="hidden-phone">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in musees %}
+                        <tr>
+                            <td>#</td>
+                            <td>{{i.nom}}</td>
+                            <td>{{i.ville}}</td>
+                            <td>{{i.region}}</td>
+                            <td>{{i.description | slice(0,60)}}</td>
+                            <td >
+                            <a class=" btn btn-success" href="{{path('museum.gallery',{id:i.getId()})}}">
+                            <i class="fa fa-file-image-o"></i>
+                            </a>
+                            <a class=" btn btn-primary" href="{{path('museum.edit',{id:i.getId()})}}"><i class="fa fa-edit"></i></a>
+                            <a class=" btn btn-danger" href=""><i class="fa fa-trash"></i></a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+    <!-- end: page -->
+</section>
+{% endblock %}

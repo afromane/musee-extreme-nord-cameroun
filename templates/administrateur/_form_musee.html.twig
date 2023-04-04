@@ -1,0 +1,54 @@
+{{ form_start(form) }}
+    <div class="form-error">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="" style="color:black;">
+    	<div class="form-group">
+            <label class="col-md-3 control-label" for="inputDefault" style="color:black;">
+            {{ form_label(form.nom, 'Nom') }} 
+            </label>
+            <div class="col-md-6">
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control' }}) }}
+                <small>{{ form_help(form.nom) }}</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="inputDefault">
+            {{ form_label(form.ville, 'ville') }} 
+            </label>
+            <div class="col-md-6">
+                {{ form_widget(form.ville, {'attr': {'class': 'form-control' }}) }}
+                <small>{{ form_help(form.ville) }}</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="inputDefault">
+            {{ form_label(form.region, 'region') }} 
+            </label>
+            <div class="col-md-6">
+                {{ form_widget(form.region, {'attr': {'class': 'form-control' }}) }}
+                <small>{{ form_help(form.region) }}</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="inputDefault">
+            {{ form_label(form.description, 'description') }} 
+            </label>
+            <div class="col-md-6">
+                {{ form_widget(form.description, {'attr': {'class': 'form-control' }}) }}
+                <small>{{ form_help(form.description) }}</small>
+            </div>
+        </div>
+        
+       
+      </div>
+    </div>
+    <hr>
+    {{ form_rest(form) }}
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">{{ button|default('Ajouter') }} <i class="fa fa-plus-circle text-white"></i></button>
+    </div>
+{{ form_end(form) }}
+
+

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<section class="exhibitions-area exhibitions-page">
+    <div class="container">
+        <div class="row masonary-layout"><!--Start single exhibition Box-->
+        {% for i in musees.images %}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="single-exhibition-box style4">
+                    <div class="img-holder">
+                    <img src="{{asset('images')}}/{{i.path}}" alt="Awesome Image">
+                        <div class="overlay-style-one bg1">
+                            <div class="zoom-button">
+                            <a class="lightbox-image" data-fancybox="gallery" href="{{asset('images')}}/{{i.path}}">
+                                    <i class="fa fa-search-plus"  aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-holder text-center">
+                    {# <span>{{i.ville~","~i.region}}</span> #}
+                        <h2><a href="">{{i.titre}}</a></h2>
+                        <p>{{i.description | slice(1,100)}}</p>
+                        <div class="bottom">
+                            <div class="review-box">
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    {# <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li> #}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+            <!--End single exhibition Box-->
+        </div>
+        {# <div class="row">
+            <div class="col-xl-12">
+                <div class="view-more-button text-center"><a class="btn-two" href="#">View More</a></div>
+            </div>
+        </div> #}
+    </div>
+</section><!--End Exhibitions Area--><!--Start subscribe Area-->
+
+{% endblock %}

@@ -1,0 +1,403 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+ <section class="main-slider style1"></section><!--End Main Slider-->
+<br><br> <br> <br><br><br> <br> <br>
+<section class="intro-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="intro-box">
+                    <div class="inner-content">
+                        <h3 > Musée des peuples de l'extrême Nord</h3>
+                        <p> votre partenaire qui vous accompagne tout au long de votre séjour  a l'extreme nord
+                                du Cameroun</p>
+                                <a class="btn-one" href="{{path('app_about')}}">En savoir plus</a>
+                    </div>
+                    <div class="plan-your-visit">
+                        <h2>Informations<a href="#"><i class="fa fa-long-arrow-right"
+                                    aria-hidden="true"></i></a></h2>
+                        <ul>
+                            <li>
+                                <div class="icon-holder"><span class="flaticon-clock"></span></div>
+                                <div class="title-holder">
+                                    <h3>Disponible</h3>
+                                    <p>24h/24 - 7j/7</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-holder"><span class="flaticon-placeholder"></span></div>
+                                <div class="title-holder">
+                                    <h3>Region</h3>
+                                    <p>Extreme-Nord<br>Cameroun</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--End Intro Area--><!--Start Exhibitions Area-->
+<section class="exhibitions-area">
+    <div class="container">
+        <div class="sec-title">
+            <p></p>
+            <div class="big-title">
+                <h1>Musée les plus populaires</h1>
+            </div>
+        </div>
+        <div class="row masonary-layout"><!--Start single exhibition Box-->
+        {% for j in limitMusee %}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                <div class="single-exhibition-box">
+                    <div class="img-holder">
+                        {% for img in j %}
+                        <img src="{{asset('images')}}/{{img.path|first}}" alt="Awesome Image">
+                        <div class="overlay-style-one bg1">
+                            <div class="zoom-button">
+                            <a class="lightbox-image" data-fancybox="gallery"
+                                    href="{{asset('images')}}/{{img.path|first}}"><i class="fa fa-search-plus"
+                                        aria-hidden="true"></i></a></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="text-holder text-center">
+                    <span></span>
+                        <h2><a href="{{ path('app_discover',{id:j.getId()})}}">{{j.nom}}</a></h2>
+                        <p>{{ j.description}}</p>
+                        <div class="button">
+                            <div class="inner"><a class="btn-one" href="{{ path('app_discover',{id:j.getId()})}}">Decouvrir</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section><!--End Exhibitions Area--><!--Start Events Area-->
+{# <section class="events-area">
+    <div class="container">
+        <div class="sec-title">
+            <p>DON’T MISS</p>
+            <div class="big-title">
+                <h1>Upcoming Events</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="event-carousel owl-carousel owl-theme owl-dot-style1"><!--Start Single event Box-->
+                    <div class="single-event-box">
+                        <div class="img-holder">
+                            <div class="inner"><img src="images/events/event-v1-1.jpg" alt="Awesome Image">
+                                <div class="overlay-style-one bg2"></div>
+                            </div>
+                            <div class="date-box">
+                                <div class="left">30</div>
+                                <div class="right">
+                                    <h6>November</h6>
+                                    <h3>SATURDAY</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-holder">
+                            <div class="inner"><span>Central Park</span>
+                                <h3><a href="#">Buffalo Bill Museum & Grave</a><i
+                                        class="fa fa-angle-double-right" aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="bottom">
+                                <div class="text">November 30, 2019 - November 28, 2020</div>
+                                <div class="button"><a href="#">Find More</a></div>
+                            </div>
+                        </div>
+                    </div><!--End Single event Box--><!--Start Single event Box-->
+                    <div class="single-event-box">
+                        <div class="img-holder">
+                            <div class="inner"><img src="images/events/event-v1-2.jpg" alt="Awesome Image">
+                                <div class="overlay-style-one bg2"></div>
+                            </div>
+                            <div class="date-box">
+                                <div class="left">31</div>
+                                <div class="right">
+                                    <h6>December</h6>
+                                    <h3>SATURDAY</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-holder">
+                            <div class="inner"><span>Reduis Maroa</span>
+                                <h3><a href="#">Renaissance to Revolution</a><i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="bottom">
+                                <div class="text">November 30, 2019 - November 28, 2020</div>
+                                <div class="button"><a href="#">Find More</a></div>
+                            </div>
+                        </div>
+                    </div><!--End Single event Box--><!--Start Single event Box-->
+                    <div class="single-event-box">
+                        <div class="img-holder">
+                            <div class="inner"><img src="images/events/event-v1-1.jpg" alt="Awesome Image">
+                                <div class="overlay-style-one bg2"></div>
+                            </div>
+                            <div class="date-box">
+                                <div class="left">30</div>
+                                <div class="right">
+                                    <h6>November</h6>
+                                    <h3>SATURDAY</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-holder">
+                            <div class="inner"><span>Central Park</span>
+                                <h3><a href="#">Buffalo Bill Museum & Grave</a><i
+                                        class="fa fa-angle-double-right" aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="bottom">
+                                <div class="text">November 30, 2019 - November 28, 2020</div>
+                                <div class="button"><a href="#">Find More</a></div>
+                            </div>
+                        </div>
+                    </div><!--End Single event Box--><!--Start Single event Box-->
+                    <div class="single-event-box">
+                        <div class="img-holder">
+                            <div class="inner"><img src="images/events/event-v1-2.jpg" alt="Awesome Image">
+                                <div class="overlay-style-one bg2"></div>
+                            </div>
+                            <div class="date-box">
+                                <div class="left">31</div>
+                                <div class="right">
+                                    <h6>December</h6>
+                                    <h3>SATURDAY</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-holder">
+                            <div class="inner"><span>Reduis Maroa</span>
+                                <h3><a href="#">Renaissance to Revolution</a><i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="bottom">
+                                <div class="text">November 30, 2019 - November 28, 2020</div>
+                                <div class="button"><a href="#">Find More</a></div>
+                            </div>
+                        </div>
+                    </div><!--End Single event Box--><!--Start Single event Box-->
+                    <div class="single-event-box">
+                        <div class="img-holder">
+                            <div class="inner"><img src="images/events/event-v1-1.jpg" alt="Awesome Image">
+                                <div class="overlay-style-one bg2"></div>
+                            </div>
+                            <div class="date-box">
+                                <div class="left">30</div>
+                                <div class="right">
+                                    <h6>November</h6>
+                                    <h3>SATURDAY</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-holder">
+                            <div class="inner"><span>Central Park</span>
+                                <h3><a href="#">Buffalo Bill Museum & Grave</a><i
+                                        class="fa fa-angle-double-right" aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="bottom">
+                                <div class="text">November 30, 2019 - November 28, 2020</div>
+                                <div class="button"><a href="#">Find More</a></div>
+                            </div>
+                        </div>
+                    </div><!--End Single event Box--><!--Start Single event Box-->
+                    <div class="single-event-box">
+                        <div class="img-holder">
+                            <div class="inner"><img src="images/events/event-v1-2.jpg" alt="Awesome Image">
+                                <div class="overlay-style-one bg2"></div>
+                            </div>
+                            <div class="date-box">
+                                <div class="left">31</div>
+                                <div class="right">
+                                    <h6>December</h6>
+                                    <h3>SATURDAY</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-holder">
+                            <div class="inner"><span>Reduis Maroa</span>
+                                <h3><a href="#">Renaissance to Revolution</a><i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="bottom">
+                                <div class="text">November 30, 2019 - November 28, 2020</div>
+                                <div class="button"><a href="#">Find More</a></div>
+                            </div>
+                        </div>
+                    </div><!--End Single event Box-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--End Events Area--><!--Start Art Area--> #}
+{# <section class="fact-counter-area">
+    <div class="container">
+        <div class="sec-title text-center">
+            <p>Everything about our organization in numerical counter view.</p>
+            <div class="big-title">
+                <h1>We Strive for Perfection<br>Every day.</h1>
+            </div>
+        </div>
+        <div class="row"><!--Start Single Fact Counter-->
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="single-fact-counter text-center wow fadeInLeft" data-wow-delay="100ms"
+                    data-wow-duration="1500ms">
+                    <div class="icon"><img src="images/icon/fact-counter-1.png" alt="Icon"></div>
+                    <div class="count-box">
+                        <h1><span class="timer" data-from="1" data-to="356" data-speed="5000"
+                                data-refresh-interval="50">356</span></h1>
+                    </div>
+                    <div class="title">
+                        <h3>Over Organized<br>Exhibitions</h3>
+                    </div>
+                </div>
+            </div><!--End Single Fact Counter--><!--Start Single Fact Counter-->
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="single-fact-counter text-center wow fadeInLeft" data-wow-delay="100ms"
+                    data-wow-duration="1500ms">
+                    <div class="icon"><img src="images/icon/fact-counter-2.png" alt="Icon"></div>
+                    <div class="count-box">
+                        <h1><span class="timer" data-from="1" data-to="400" data-speed="5000"
+                                data-refresh-interval="50">400</span></h1>
+                    </div>
+                    <div class="title">
+                        <h3>Unique Objects Around<br>the World</h3>
+                    </div>
+                </div>
+            </div><!--End Single Fact Counter--><!--Start Single Fact Counter-->
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="single-fact-counter text-center wow fadeInLeft" data-wow-delay="100ms"
+                    data-wow-duration="1500ms">
+                    <div class="icon"><img src="images/icon/fact-counter-3.png" alt="Icon"></div>
+                    <div class="count-box">
+                        <h1><span class="timer" data-from="1" data-to="80" data-speed="5000"
+                                data-refresh-interval="50">80</span></h1>
+                    </div>
+                    <div class="title">
+                        <h3>Multi media Exhibitions<br>with a Guide</h3>
+                    </div>
+                </div>
+            </div><!--End Single Fact Counter--><!--Start Single Fact Counter-->
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="single-fact-counter text-center wow fadeInLeft" data-wow-delay="100ms"
+                    data-wow-duration="1500ms">
+                    <div class="icon"><img src="images/icon/fact-counter-4.png" alt="Icon"></div>
+                    <div class="count-box">
+                        <h1><span class="timer" data-from="1" data-to="4648" data-speed="5000"
+                                data-refresh-interval="50">4,648</span></h1>
+                    </div>
+                    <div class="title">
+                        <h3>Tickets Sold by our<br>Organization</h3>
+                    </div>
+                </div>
+            </div><!--End Single Fact Counter-->
+        </div>
+    </div>
+</section><!--End Fact Counter Area--><!--Start latest blog area --> #}
+{# <section class="latest-blog-area">
+    <div class="container inner-content">
+        <div class="row">
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                <div class="latest-blog-title">
+                    <div class="sec-title">
+                        <p>OUR LATEST NEWS</p>
+                        <div class="big-title">
+                            <h1>Interviews and<br>Publications</h1>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p>Your our Latest News interview and<br>Publication on your Update work. if you<br>want
+                            to this to you subcribe us now<br>and more detial</p><a href="#">More View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                <div class="blog-carousel owl-carousel owl-theme owl-nav-style-one">
+                    <!--Start single blog post-->
+                    <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
+                        <div class="img-holder"><img src="images/blog/latest-b-v1-1.jpg" alt="Awesome Image">
+                            <div class="overlay-style-one bg1"></div>
+                        </div>
+                        <div class="text-holder">
+                            <div class="post-date"><span>January 12, 2019</span></div>
+                            <h3 class="blog-title"><a href="blog-single.html">Looking Forward: The Phasrasth and
+                                    Kenyard</a></h3>
+                            <div class="text">Her tricky smile and timeless allure have inspired academic study
+                                & artistic emulation for more than five once and</div>
+                            <div class="button-box"><a href="blog-single.html">Read More</a></div>
+                        </div>
+                    </div><!--End single blog post--><!--Start single blog post-->
+                    <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
+                        <div class="img-holder"><img src="images/blog/latest-b-v1-2.jpg" alt="Awesome Image">
+                            <div class="overlay-style-one bg1"></div>
+                        </div>
+                        <div class="text-holder">
+                            <div class="post-date"><span>January 12, 2019</span></div>
+                            <h3 class="blog-title"><a href="blog-single.html">Scenes from Stepan Hawkin’s
+                                    World</a></h3>
+                            <div class="text">In a 1982 essay, Halley wrote that the idealist square becomes the
+                                prison made Geoetry is revealed as confinementIn other</div>
+                            <div class="button-box"><a href="blog-single.html">Read More</a></div>
+                        </div>
+                    </div><!--End single blog post--><!--Start single blog post-->
+                    <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
+                        <div class="img-holder"><img src="images/blog/latest-b-v1-1.jpg" alt="Awesome Image">
+                            <div class="overlay-style-one bg1"></div>
+                        </div>
+                        <div class="text-holder">
+                            <div class="post-date"><span>January 12, 2019</span></div>
+                            <h3 class="blog-title"><a href="blog-single.html">Looking Forward: The Phasrasth and
+                                    Kenyard</a></h3>
+                            <div class="text">Her tricky smile and timeless allure have inspired academic study
+                                & artistic emulation for more than five once and</div>
+                            <div class="button-box"><a href="blog-single.html">Read More</a></div>
+                        </div>
+                    </div><!--End single blog post--><!--Start single blog post-->
+                    <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
+                        <div class="img-holder"><img src="images/blog/latest-b-v1-2.jpg" alt="Awesome Image">
+                            <div class="overlay-style-one bg1"></div>
+                        </div>
+                        <div class="text-holder">
+                            <div class="post-date"><span>January 12, 2019</span></div>
+                            <h3 class="blog-title"><a href="blog-single.html">Scenes from Stepan Hawkin’s
+                                    World</a></h3>
+                            <div class="text">In a 1982 essay, Halley wrote that the idealist square becomes the
+                                prison made Geoetry is revealed as confinementIn other</div>
+                            <div class="button-box"><a href="blog-single.html">Read More</a></div>
+                        </div>
+                    </div><!--End single blog post-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--End latest blog area--><!--Start subscribe Area--> #}
+{# <section class="subscribe-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="subscribe-title">
+                    <h1>News Letter Now</h1><span>Receive e-mail updates on our exhibitions, events, and
+                        more........</span>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="subscribe-box">
+                    <form class="subscribe-form" action="#"><input type="email" name="email"
+                            placeholder="Your Email Address"><button type="submit">Subscribe</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> #}
+{% endblock %}

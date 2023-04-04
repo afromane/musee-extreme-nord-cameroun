@@ -1,0 +1,194 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>	
+        <div class="container">
+            <div class="row fullscreen d-flex align-items-center justify-content-center">
+                <div class="banner-content col-lg-8">
+                    {# <h6 class="text-white">Openning on 21st February, 2018</h6> #}
+                    <h1 class="text-white">
+                        Exposition				
+                    </h1>
+                    <p class="pt-20 pb-20 text-white">
+                    Le musée numérique pour les peuples de l'extrême nord du Cameroun est un projet visant à permettre aux visiteurs du monde entier de découvrir 
+                    et apprendre davantage sur les différentes cultures et traditions des peuples de cette région
+                    </p>
+                    <a href="{{path('app_museum')}}" class="primary-btn text-uppercase">Decourvrir</a>
+                </div>											
+            </div>
+        </div>					
+    </section>
+    <!-- End banner Area -->	
+
+    <!-- Start service Area -->
+    <section class="service-area pt-100" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <span class="lnr lnr-clock"></span>
+                        <h4>Jours Ouvrable</h4>
+                        <p>
+                        Lundi - Samedi: 10h à 17h
+                        Samedi: 8h à 15h
+                        Dimance Fermé
+                        </p>						 	
+                        <div class="overlay">
+                        {# <div class="text">
+                             <p>
+                                Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                            </p>
+                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a> 
+                        </div> #}
+                        </div>
+                    </div>							
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <span class="lnr lnr-rocket"></span>
+                        <h4>Exposition</h4>
+                        <p>
+                        Lundi - Samedi: 10h à 17h
+                        Samedi: 8h à 15h
+                        Dimance Fermé
+                        </p>						 	
+                        <div class="overlay">
+                        {# <div class="text">
+                             <p>
+                                Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                            </p>
+                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a> 
+                        </div> #}
+                        </div>
+                    </div>							
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <span class="lnr lnr-briefcase"></span>
+                        <h4>Reservation</h4>
+                        <p>
+                         7j/7j : 24h/24h
+
+                        </p>						 	
+                        <div class="overlay">
+                        {# <div class="text">
+                             <p>
+                                Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                            </p>
+                            <a href="#" class="text-uppercase primary-btn">Buy ticket</a> 
+                        </div> #}
+                        </div>
+                    </div>							
+                </div>												
+            </div>
+        </div>	
+    </section>
+    <!-- End service Area -->
+    
+    <!-- Start quote Area -->
+    <section class="quote-area section-gap">
+        <div class="container">				
+            <div class="row">
+                <div class="col-lg-6 quote-left">
+                    <h1>
+                        <span>Musée</span>  <br>Numérique
+                    </h1>
+                </div>
+                <div class="col-lg-6 quote-right">
+                    <p>
+                    Le musée numérique pour les peuples de l'extrême nord du Cameroun est un projet visant à permettre aux visiteurs du monde entier de découvrir et apprendre 
+                    davantage sur les différentes cultures et traditions des peuples de cette région
+                    </p>
+                </div>
+            </div>
+        </div>	
+    </section>
+    <!-- End quote Area -->
+
+    <!-- Start exibition Area -->
+    <section class="exibition-area section-gap" id="exhibitions">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-10">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Exposition</h1>
+                        <p>Découvrir nos exposition.</p>
+                    </div>
+                </div>
+            </div>						
+            <div class="row">
+                <div class="active-exibition-carusel">
+                {% for musee in musees %}
+                    {% for img in musee.images %}
+                        <div class="single-exibition item">
+                            <img src="{{ asset('images')}}/{{img.path}}" alt="">
+                            <ul class="tags">
+                                <li><a href="#">Détail</a></li>
+                                <li><a href="#">Reserver</a></li>
+                            </ul>
+                            <a href="#"><h4>{{ musee.nom ~" ("~img.titre~")"}}</h4></a>
+                            <p>{{img.description | slice(1,70) }} ... </p>
+                            {# <h6 class="date">31st January, 2018</h6> #}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                </div>													
+            </div>
+        </div>	
+    </section>
+    <!-- End exibition Area -->			
+{# 
+    <!-- Start upcoming-event Area -->
+<section class="upcoming-event-area section-gap" id="events">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Nos musées</h1>
+                    <p></p>
+                </div>
+            </div>
+        </div>						
+        <div class="row">
+            <div class="col-lg-6 event-left">
+                
+                <div class="single-events">
+                    <img class="img-fluid" src="img/u3.jpg" alt="">
+                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                    <h6><span>21st February</span> at Central government museum</h6>
+                    <p>
+                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                    </p>
+                    <a href="#" class="primary-btn text-uppercase">Voir plus</a>
+                </div>							
+            </div>
+            
+        </div>
+    </div>	
+</section>
+<!-- End upcoming-event Area -->
+
+     #}
+
+    <!-- Start gallery Area -->
+    <section class="gallery-area section-gap" id="gallery">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10 text-white">Notre gallerie d'exposition</h1>
+                    </div>
+                </div>
+            </div>						
+            <div id="grid-container" class="row">
+            {% for img in images %}
+                <a class="single-gallery" href="{{ asset('images')}}/{{img.path}}"><img class="grid-item" src="{{ asset('images')}}/{{img.path}}"></a>
+            {% endfor %}						
+            </div>	
+        </div>	
+    </section>
+{% endblock %}

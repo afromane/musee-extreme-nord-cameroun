@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">	
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Nos musée	
+                </h1>	
+                <p class="text-white link-nav"><a href="{{ path('app_home')}}">Accueil </a>  <span class="lnr lnr-arrow-right"></span>  <a > Musée</a></p>
+            </div>											
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->	
+
+<!-- Start upcoming-event Area -->
+<section class="upcoming-event-area section-gap" id="events">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Nos musées</h1>
+                    <p></p>
+                </div>
+            </div>
+        </div>						
+        <div class="row">
+        {% for i in musees %}
+            <div class="col-lg-6 event-left">
+                
+                <div class="single-events">
+                    <img class="img-fluid" src="img/u3.jpg" alt="">
+                    <a href="{{ path('app_museum_detail',{id : i.getId()})}}"><h4>{{ i.nom}}</h4></a>
+                    {# <h6><span>21st February</span> at Central government museum</h6> #}
+                    <p>
+                       {{ i.description | slice(1,100)}}
+                    </p>
+                    <a href="{{ path('app_museum_detail',{id : i.getId()})}}" class="primary-btn text-uppercase">Voir plus</a>
+                </div>							
+            </div>
+        {% endfor %}
+            
+        </div>
+    </div>	
+</section>
+<!-- End upcoming-event Area -->
+
+{% endblock %}
